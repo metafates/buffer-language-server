@@ -14,3 +14,11 @@ target/
 
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
+
+#######
+# Nix #
+#######
+
+# Ignore build outputs from performing a nix-build or `nix build` command
+result
+result-*

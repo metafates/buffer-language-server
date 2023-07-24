@@ -13,9 +13,23 @@ Currently, it can only autocomplete the words[^1] found in the current buffer.
 
 ## Install
 
+### Cargo
+
+```bash
+cargo install buffer-language-server
+```
+
+### From source
+
+```bash
+cargo install --git https://github.com/metafates/buffer-language-server
+```
+
+## Use in your editor
+
 ### Helix
 
-If you are using the stable version (which doesn't support multiple language servers yet)
+If you are using the stable version (<= 23.05), which doesn't support multiple language servers yet,
 add these lines to your `languages.toml` (if you want to enable this LSP for the markdown files)
 
 ```toml
@@ -24,7 +38,7 @@ name = "markdown"
 language-server = { command = "buffer-language-server" }
 ```
 
-Otherwise (you will the Helix editor compiled from the HEAD [latest commit])
+Otherwise (you will need the Helix editor compiled from the HEAD [latest commit])
 
 Add these lines to your `languages.toml`
 
@@ -39,8 +53,10 @@ Then you can use it as an additional language server.
 [[language]]
 name = "markdown"
 language-servers = ["buffer-language-server"]
+
+[[language]]
+name = "my-language"
+language-servers = ["buffer-language-server"]
 ```
 
-[^1]: "Word" is defined as a sequence of ASCII characters without whitespace nor punctuation.
-
-  For example, `one,two,three four!five` contains 5 words.
+[^1]: "Word" is defined as a sequence of ASCII characters without whitespace nor punctuation. For example, `one,two,three four!five` contains 5 words.
